@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"io/ioutil"
@@ -6,7 +6,7 @@ import (
 )
 
 // 0. Can do assignment in if clause. The scopes of assigned variables are in this if statement
-func TestBBound(t *testing.T) {
+func TestBound(t *testing.T) {
 	const filename = "abc.txt"
 	if contents, err := ioutil.ReadFile(filename); err != nil {
 		t.Log(err)
