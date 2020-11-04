@@ -7,7 +7,6 @@ import (
 
 // 0. variable declared with default value
 // Note: when printing empty string, use a combination of Printf and %q (as quote)
-
 func TestDefaultValue(t *testing.T){
 	var a int
 	var s string
