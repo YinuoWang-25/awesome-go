@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // 0. variable declared with default value
 // Note: when printing empty string, use a combination of Printf and %q (as quote)
@@ -42,10 +45,27 @@ var (
 	bol = true
 )
 
+// 5. built-in data types
+/*
+- bool, string
+- (u)int, (u)int8, (u)int16, (u)int32, (u)int64, uintptr
+- byte, rune
+- float32, float64, complex64, complex128
+ */
+
+// 6. data type conversion: need to do it explicitly
+func triangle() {
+	var a, b = 3, 4
+	var c int = int(math.Sqrt(float64(a * a + b * b)))
+	fmt.Println("triangle:", c)
+}
+
+
 func main() {
 	variable()
 	variableWithInitialValue()
 	variableTypeDeduction()
 	variableShorter()
 	fmt.Println(k, bol)
+	triangle();
 }
