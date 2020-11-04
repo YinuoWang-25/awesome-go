@@ -1,40 +1,41 @@
 package main
 
 import (
-	"fmt"
 	"math"
+	"testing"
 )
 
 // 0. variable declared with default value
 // Note: when printing empty string, use a combination of Printf and %q (as quote)
-func variable() {
+
+func TestDefaultValue(t *testing.T){
 	var a int
 	var s string
-	fmt.Printf("%d, %q\n", a, s)
+	t.Logf("%d, %q\n", a, s)
 }
 
 // 1. Declare variables with initial values
 // Note: can declare multiple variables in one statement
 // Note: no values needed
-func variableWithInitialValue() {
+func TestInitialValue(t *testing.T) {
 	var a, b int = 3, 4
 	var s string = "abc"
-	fmt.Println(a, b, s)
+	t.Log(a, b, s)
 }
 
 // 2. Declare variables with initial values
 // Note: in this way, variables in different types can declared in one statement
-func variableTypeDeduction() {
+func TestTypeDeduction(t *testing.T) {
 	var a, b, c, s = 3, 4, true, "def"
-	fmt.Println(a, b, c, s)
+	t.Log(a, b, c, s)
 }
 
 // 3. Declare variables in short
 // Note: assignment can not use := again
-func variableShorter() {
+func TestShortDeclaration(t *testing.T) {
 	a, b, c, s := 3, 4, true, "def"
 	b = 5
-	fmt.Println(a, b, c, s)
+	t.Log(a, b, c, s)
 }
 
 // 4. Declare variables out of functions
@@ -44,6 +45,9 @@ var (
 	k = "kk"
 	bol = true
 )
+func TestPackageScopeVal(t *testing.T) {
+	t.Log(k, bol)
+}
 
 // 5. built-in data types
 /*
@@ -54,18 +58,8 @@ var (
  */
 
 // 6. data type conversion: need to do it explicitly
-func triangle() {
+func TestTriangle(t *testing.T) {
 	var a, b = 3, 4
 	var c int = int(math.Sqrt(float64(a * a + b * b)))
-	fmt.Println("triangle:", c)
-}
-
-
-func main() {
-	variable()
-	variableWithInitialValue()
-	variableTypeDeduction()
-	variableShorter()
-	fmt.Println(k, bol)
-	triangle();
+	t.Log("triangle:", c)
 }
