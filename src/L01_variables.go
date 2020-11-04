@@ -16,19 +16,36 @@ func variable() {
 func variableWithInitialValue() {
 	var a, b int = 3, 4
 	var s string = "abc"
-	fmt.Println( a, b, s)
+	fmt.Println(a, b, s)
 }
 
 // 2. Declare variables with initial values
+// Note: in this way, variables in different types can declared in one statement
 func variableTypeDeduction() {
-	var a, b = 3, 4
-	var s = "abc"
-	fmt.Println( a, b, s)
+	var a, b, c, s = 3, 4, true, "def"
+	fmt.Println(a, b, c, s)
 }
 
+// 3. Declare variables in short
+// Note: assignment can not use := again
+func variableShorter() {
+	a, b, c, s := 3, 4, true, "def"
+	b = 5
+	fmt.Println(a, b, c, s)
+}
+
+// 4. Declare variables out of functions
+// Note: always need var key word
+// Note: scope: in package
+var (
+	k = "kk"
+	bol = true
+)
 
 func main() {
 	variable()
 	variableWithInitialValue()
 	variableTypeDeduction()
+	variableShorter()
+	fmt.Println(k, bol)
 }
