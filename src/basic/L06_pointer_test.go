@@ -10,3 +10,5 @@ func TestPointer (t *testing.T) {
 	*pa = 3
 	t.Log(a)
 }
+
+// 1. only pass-by-value in go. So we need to leverage pointer to update variable in calling function
